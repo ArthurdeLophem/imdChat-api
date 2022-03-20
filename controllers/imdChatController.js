@@ -12,7 +12,7 @@ const getAll = (req, res) => {
             });
         }
     });
-}
+};
 
 const getMessageById = async (req, res) => {
     try {
@@ -28,7 +28,6 @@ const createMessage = (req, res) => {
     let message = new IMDMessage();
     message.username = req.body.username;
     message.message = req.body.message;
-
     message.save((err, doc) => {
         if (err) {
             res.json({
@@ -46,10 +45,9 @@ const createMessage = (req, res) => {
             })
         }
     })
-}
+};
 
 const updateMessage = (req, res) => {
-    //let username = req.username._id;
     let messageId = req.params.id;
     let newMessage = req.body.message;
     IMDMessage.findOneAndUpdate({
@@ -61,7 +59,7 @@ const updateMessage = (req, res) => {
     }).catch(err => {
         res.json(err);
     })
-}
+};
 
 const deleteMessage = (req, res) => {
     let messageId = req.params.id;
@@ -73,7 +71,7 @@ const deleteMessage = (req, res) => {
     }).catch(err => {
         res.json(err);
     })
-}
+};
 
 module.exports.getAll = getAll;
 module.exports.getMessageById = getMessageById;
