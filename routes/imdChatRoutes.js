@@ -15,7 +15,7 @@ router.post("/", imdChatController.createMessage);
 router.put("/:id", imdChatController.updateMessage);
 
 //delete message
-//router.delete("/:id", imdChatController.deleteMessageById);
+router.delete("/:id", imdChatController.deleteMessage);
 
 //get message by username
 //router.get('/api/v1/messages?user=username', imdChatController);

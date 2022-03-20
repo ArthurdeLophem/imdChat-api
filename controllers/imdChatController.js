@@ -63,7 +63,20 @@ const updateMessage = (req, res) => {
     })
 }
 
+const deleteMessage = (req, res) => {
+    let messageId = req.params.id;
+    IMDMessage.findByIdAndDelete({
+        _id: messageId
+    }).then(doc => {
+        res.json(doc);
+        res.send("message deleted");
+    }).catch(err => {
+        res.json(err);
+    })
+}
+
 module.exports.getAll = getAll;
 module.exports.getMessageById = getMessageById;
 module.exports.createMessage = createMessage;
 module.exports.updateMessage = updateMessage;
+module.exports.deleteMessage = deleteMessage;
