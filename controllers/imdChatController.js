@@ -14,21 +14,16 @@ const getAll = (req, res) => {
     });
 }
 
-const getMessageById = (req, res) => {
-    const response = {
-        "status": "success",
-        "message": "getting message by id",
-        data: {
-            messages: [
-                {
-                    "username": "elon",
-                    "message": "1v1 putin bro"
-                }
-            ],
-        },
-    };
-    res.json(response);
-}
+const getMessageById = async (req, res) => {
+    try {
+        const data = await IMDMessage.findById(req.params.id);
+        res.json(data)
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+};
+
 
 const createMessage = (req, res) => {
     let message = new IMDMessage();
