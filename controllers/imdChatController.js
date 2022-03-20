@@ -1,7 +1,7 @@
 const IMDMessage = require("./../models/imdChatModel");
 
 const getAll = (req, res) => {
-    IMDMessage.find({ "username": "muskies" }, (err, docs) => {
+    IMDMessage.find((err, docs) => {
         if (!err) {
             res.json({
                 "status": "success",
