@@ -12,14 +12,12 @@ router.get("/:id", imdChatController.getMessageById);
 router.post("/", imdChatController.createMessage);
 
 //update message
-//router.put("/:id", imdChatController.updateMessageById);
+router.put("/:id", imdChatController.updateMessage);
 
 //delete message
 //router.delete("/:id", imdChatController.deleteMessageById);
 
 //get message by username
 //router.get('/api/v1/messages?user=username', imdChatController);
-
-
 
 module.exports = router;

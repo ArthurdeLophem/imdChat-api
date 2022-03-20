@@ -48,6 +48,22 @@ const createMessage = (req, res) => {
     })
 }
 
+const updateMessage = (req, res) => {
+    //let username = req.username._id;
+    let messageId = req.params.id;
+    let newMessage = req.body.message;
+    IMDMessage.findOneAndUpdate({
+        _id: messageId
+    }, {
+        "message": newMessage
+    }).then(doc => {
+        res.json(doc);
+    }).catch(err => {
+        res.json(err);
+    })
+}
+
 module.exports.getAll = getAll;
 module.exports.getMessageById = getMessageById;
 module.exports.createMessage = createMessage;
+module.exports.updateMessage = updateMessage;
