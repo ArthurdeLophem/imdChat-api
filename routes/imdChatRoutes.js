@@ -9,7 +9,7 @@ router.get("/", imdChatController.getAll);
 router.get("/:id", imdChatController.getMessageById);
 
 //post message
-//router.post("/", imdChatController.createMessage);
+router.post("/", imdChatController.createMessage);
 
 //update message
 //router.put("/:id", imdChatController.updateMessageById);
