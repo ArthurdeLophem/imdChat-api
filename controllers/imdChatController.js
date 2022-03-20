@@ -39,7 +39,7 @@ const createMessage = (req, res) => {
         if (!err) {
             res.json({
                 "status": "success",
-                "message": "getting message by id",
+                "message": "created new message",
                 "data": {
                     "messages": doc
                 },
