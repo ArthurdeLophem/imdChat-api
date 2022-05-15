@@ -13,7 +13,7 @@ fetch(baseUrl + 'api/v1/messages', {
         let newMessage = document.createElement("div")
         newMessage.className = "messageBox"
         let username = document.createElement("p")
-        username.innerHTML = message.username + ":"
+        username.innerHTML = message.user + ":"
         username.className = "messageUsername"
         let text = document.createElement("p")
         text.innerHTML = message.message
