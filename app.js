@@ -9,7 +9,7 @@ mongoose.connect(process.env.dbconn || config.get('Database.conn'), { useNewUrlP
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(express.urlencoded({ extended: false }));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,11 +19,8 @@ app.get('/', (req, res) => {
 })
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cors());
 app.use('/api/v1/messages', router)
-
-app.listen(3000, () => {
-    console.log(`Server Started at ${3000}`)
-})
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -40,3 +37,6 @@ app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.render('error');
 });
+
+
+module.exports = app;
