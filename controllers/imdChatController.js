@@ -66,8 +66,12 @@ const deleteMessage = (req, res) => {
     IMDMessage.findByIdAndDelete({
         _id: messageId
     }).then(doc => {
-        res.json(doc);
-        res.send("message deleted");
+        res.json(
+            {
+                "status": "succes",
+                "message": "deleted a message",
+                "deleted message": doc
+            })
     }).catch(err => {
         res.json(err);
     })
