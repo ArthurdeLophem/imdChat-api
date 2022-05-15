@@ -1,0 +1,10 @@
+.messageUsername {
+    font-weight: 900;
+    color: blue;
+}
+
+.messageBox {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
