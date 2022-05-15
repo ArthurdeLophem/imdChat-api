@@ -1,5 +1,7 @@
-fetch('http://localhost:3000/api/v1/messages/', {
-    method: 'get',
+baseUrl = 'https://deshi-imdchatapp.herokuapp.com/'
+
+fetch(baseUrl + 'api/v1/messages', {
+    method: 'GET',
     headers: {
         'Content-Type': 'application/json'
     },
