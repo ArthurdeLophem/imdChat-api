@@ -2,8 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const router = require('./routes/imdChatRoutes');
+const config = require('config')
 
-mongoose.connect('mongodb://localhost:27017/imdchatapp', { useNewUrlParser: true });
+mongoose.connect(process.env.dbconn || config.get('Database.conn'), { useNewUrlParser: true });
 
 const app = express();
 app.use(express.json());
