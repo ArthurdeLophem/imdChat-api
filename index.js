@@ -2,12 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const router = require('./routes/imdChatRoutes');
-const config = require('config')
+const config = require('config');
+const cors = require('cors');
 
 mongoose.connect(process.env.dbconn || config.get('Database.conn'), { useNewUrlParser: true });
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
