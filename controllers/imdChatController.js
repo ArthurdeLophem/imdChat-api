@@ -26,7 +26,7 @@ const getMessageById = async (req, res) => {
 
 const createMessage = (req, res) => {
     let message = new IMDMessage();
-    message.username = req.body.username;
+    message.user = req.body.user;
     message.message = req.body.message;
     message.save((err, doc) => {
         if (err) {
