@@ -55,7 +55,12 @@ const updateMessage = (req, res) => {
     }, {
         "message": newMessage
     }).then(doc => {
-        res.json(doc);
+        res.json(
+            {
+                "status": "succes",
+                "message": "updated a message",
+                "update": " message " + "'" + messageId + "'" + " has been updated to " + "'" + newMessage + "'"
+            })
     }).catch(err => {
         res.json(err);
     })
